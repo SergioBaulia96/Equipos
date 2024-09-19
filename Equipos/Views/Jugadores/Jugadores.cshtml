@@ -1,0 +1,72 @@
+@{
+    ViewData["Title"] = "Jugadores";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Lista de Jugadores</h1>
+</div>
+
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalJugadores" onclick="NuevoJugador()">
+    Nuevo Jugador
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="ModalJugadores" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModal"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="hidden" id="JugadorID" value="0">
+
+                    <label for="NombreJugador" class="form-label">Jugador</label>
+                    <input type="text" id="NombreJugador" class="form-control">
+
+                    <label for="ClubID" class="form-label">Club</label>
+                    @Html.DropDownList("ClubID", null, htmlAttributes: new { @class = "form-control" })
+
+                    <label for="Posicion" class="form-label">Posicion</label>
+                    @Html.DropDownList("Posicion", null, htmlAttributes: new { @class = "form-control" })
+
+                    <label for="Edad" class="form-label">Edad</label>
+                    <input type="number" id="Edad" class="form-control">
+
+                    <label for="Nacionalidad" class="form-label">Nacionalidad</label>
+                    <input type="text" id="Nacionalidad" class="form-control">
+
+                    <label for="Ingreso" class="form-label">Ingreso</label>
+                    <input type="date" id="Ingreso" class="form-control">
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="LimpiarModal()">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="GuardarJugador()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>Jugador</th>
+            <th>Club</th>
+            <th>Posicion</th>
+            <th>Edad</th>
+            <th>Nacionalidad</th>
+            <th>Ingreso</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody id="tbody-jugadores"></tbody>
+</table>
+
+@section Scripts {
+    <script src="~/js/jugadores.js"></script>
+}

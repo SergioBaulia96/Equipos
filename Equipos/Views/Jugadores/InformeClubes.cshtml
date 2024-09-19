@@ -1,0 +1,47 @@
+
+@{
+    ViewData["Title"] = "Informe";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Informe Clubes</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <label for="BuscarDesde" class="form-label text-light">Desde</label>
+        <input type="date" id="BuscarDesde" class="form-control" />
+    </div>
+    <div class="col-md-3">
+        <label for="BuscarHasta" class="form-label text-light">Hasta</label>
+        <input type="date" id="BuscarHasta" class="form-control" />
+    </div>
+</div>
+<div class="mt-2 p-1">
+    <button type="button" class="btn btn-primary" onclick="ListadoInformes()">
+        Buscar
+    </button>
+</div>
+
+
+
+
+
+
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>CLUBES</th>
+            <th>Jugador</th>
+            <th>Posicion</th>
+            <th>Edad</th>
+            <th>Nacionalidad</th>
+            <th>Ingreso</th>
+        </tr>
+    </thead>
+    <tbody id="tbody-informeclubes"></tbody>
+</table>
+
+@section Scripts {
+    <script src="~/js/informeclubes.js"></script>
+}
